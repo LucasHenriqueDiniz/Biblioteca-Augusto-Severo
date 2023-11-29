@@ -1,0 +1,37 @@
+/* tailwind.config.js (opcional, se você quiser customizar o Tailwind) */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.loginCard {
+  min-width: 600px;
+  width: 80%;
+  max-width: 600px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  height: 48px;
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 36px;
+}
+
+.Title {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .loginCard {
+    width: 70%;
+    max-width: none;
+  }
+}
