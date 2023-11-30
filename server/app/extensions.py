@@ -7,7 +7,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 flask_bcrypt = Bcrypt()
 api = Api(
-    title="Basicão Fullstack",
-    version="1.0",
-    description="API braba 🔥",
+    title="Biblioteca de livros",
+    version="0.5",
+    description="API básica para biblioteca de livros semi-funcional.",
 )

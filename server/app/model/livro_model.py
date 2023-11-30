@@ -1,7 +1,10 @@
 from app import db
 import uuid
+
+
 class Livro(db.Model):
-    """ Book Model for storing book details """
+    """Book Model for storing book details"""
+
     __tablename__ = "livro"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -13,7 +16,7 @@ class Livro(db.Model):
     capa = db.Column(db.String(255), nullable=True)
     sinopse = db.Column(db.String(255), nullable=True)
     reserved = db.Column(db.Boolean, nullable=False, default=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     def __init__(self, titulo, autor, ano_publicacao, categoria, capa, sinopse, uuid):
         self.titulo = titulo
@@ -24,6 +27,6 @@ class Livro(db.Model):
         self.sinopse = sinopse
         self.uuid = uuid
         self.reserved = False
-        
+
     def __repr__(self):
         return "<Livro '{}'>".format(self.titulo)

@@ -37,6 +37,7 @@ class Livro(Resource):
         except Exception as e:
             return {"message": str(e)}, 500
 
+
 @api.route("/<string:uuid_livro>")
 @api.param("uuid_livro", "Book UUID")
 class LivroComId(Resource):
@@ -82,7 +83,7 @@ class LivroComId(Resource):
                 response = devolver_livro(livro_id, 1)
                 return response
             except Exception as e:
-                return {"message": str(e), "status": 500 }
+                return {"message": str(e), "status": 500}
 
     @api.route("/reserved")
     class LivrosReservados(Resource):

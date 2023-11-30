@@ -9,9 +9,9 @@ api = AuthDto.api
 _user_auth = AuthDto.user_auth
 
 
-@api.route('/login')
+@api.route("/login")
 class UserLogin(Resource):
-    @api.doc('user login')
+    @api.doc("user login")
     @api.expect(_user_auth, validate=True)
     def post(self):
         post_data = request.json
@@ -20,23 +20,23 @@ class UserLogin(Resource):
         if response == 200:
             return response
         else:
-            return {'message': 'Login failed'}, response
+            return {"message": "Login failed"}, response
 
 
-@api.route('/logout')
+@api.route("/logout")
 class LogoutAPI(Resource):
     @transaction
-    @api.doc('logout a user')
+    @api.doc("logout a user")
     def post(self):
         # get auth token
-        auth_header = request.headers.get('Authorization')
+        auth_header = request.headers.get("Authorization")
         return Auth.logout_user(data=auth_header)
 
 
-@api.route('/validate')
+@api.route("/validate")
 class ValidateToken(Resource):
     @token_required
-    @api.doc('blocked route for token validation')
+    @api.doc("blocked route for token validation")
     def get(self):
         # get auth token
         return None, 200

@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
@@ -43,7 +42,6 @@ export default function App() {
     <Layout className="flex flex-col w-screen h-screen">
       <Header />
       <Routes>
-        {/* <Route index element={<Home />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

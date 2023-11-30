@@ -2,20 +2,24 @@
 
 import { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Form, Image, Input, Layout, Space, Typography, message } from "antd";
+import {
+  Button,
+  Form,
+  Image,
+  Input,
+  Layout,
+  Space,
+  Typography,
+  message,
+} from "antd";
 import { useAuth } from "../../store/authContext";
 import { Content } from "antd/es/layout/layout";
-// import Logo from "../../../public/logo.png"
+import { LoginFormType } from "../../types/loginForm";
 
 export function Login() {
   const auth = useAuth();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-
-  type LoginFormType = {
-    email: string;
-    password: string;
-  };
 
   const handleFinish = useCallback(async (values: LoginFormType) => {
     setIsLoading(true);
@@ -31,18 +35,26 @@ export function Login() {
     <Layout className="min-h-screen flex items-center justify-center">
       <Content className="w-full max-w-screen-md flex">
         <div className="bg-white p-8 rounded shadow-md my-auto">
-          {/* Adicione a sua logo aqui */}
           <div className="flex items-center justify-center">
-          <Image src={"/logo.png?url"} alt="Logo" className="mb-6" width={100} preview={false} />
+            <Image
+              src={"/logo.png?url"}
+              alt="Logo"
+              className="mb-6"
+              width={100}
+              preview={false}
+            />
           </div>
 
-          {/* Adicione a mensagem de boas-vindas aqui */}
           <Typography.Title level={1} className="text-3xl font-bold mb-6">
             Bem-vindo à Biblioteca Augusto Severo
           </Typography.Title>
 
-
-          <Form requiredMark={false} onFinish={handleFinish} layout="vertical" className="flex flex-col gap-6">
+          <Form
+            requiredMark={false}
+            onFinish={handleFinish}
+            layout="vertical"
+            className="flex flex-col gap-6"
+          >
             <Form.Item
               label="Email"
               name="email"
@@ -58,7 +70,11 @@ export function Login() {
                 },
               ]}
             >
-              <Input type="email" placeholder="your-email@example.com" className="h-12" />
+              <Input
+                type="email"
+                placeholder="your-email@example.com"
+                className="h-12"
+              />
             </Form.Item>
 
             <Form.Item

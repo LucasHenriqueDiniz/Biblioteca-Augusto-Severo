@@ -1,9 +1,9 @@
 import { Button, Modal, Spin, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
-import { Row, Col, Layout, Image } from "antd";
+import { Row, Col, Image } from "antd";
 import AddButton from "../../components/addButton/addButton";
 import { todosLivros } from "../../services/apiFunctions";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { livroType } from "../../types/livro";
 import BookCard from "../../components/BookCard/bookCard";
 
@@ -127,7 +127,7 @@ function Main() {
               />
             </Col>
           ))}
-          <AddButton updateBooksNow={() => updateLivros()} />
+          <AddButton updateBooksNow={() => updateLivros()} isAdmin={true} />
         </div>
       </Row>
       <BookModal

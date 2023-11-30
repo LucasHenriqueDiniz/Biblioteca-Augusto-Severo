@@ -2,15 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ConfigProvider } from "antd";
-import { SessionContextProvider } from "./store/context";
 import "./global.css";
-
 import "antd/dist/reset.css";
 
 import App from "./App";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AuthContextProvider } from "./store/authContext";
+// TODO make user usable
 
 const router = createBrowserRouter([
   {
@@ -31,11 +30,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ConfigProvider>
       <AuthContextProvider>
-        <SessionContextProvider>
-          <div className="flex align-start min-h-screen">
-            <RouterProvider router={router} />
-          </div>
-        </SessionContextProvider>
+        <div className="flex align-start min-h-screen">
+          <RouterProvider router={router} />
+        </div>
       </AuthContextProvider>
     </ConfigProvider>
   </React.StrictMode>
